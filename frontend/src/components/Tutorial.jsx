@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sfx } from "../utils/sound.js";
-
-// Each step targets a DOM element via data-tour="<id>" so the spotlight
-// is always accurate regardless of screen size (no hardcoded pixel math).
 const STEPS = [
   {
     target: "map",
-    title: "🗺️ The Big Green Map",
+    title: "🗺️ The Big Map",
     body: [
-      "This is Bangladesh, live. Every district glows a different color based on predicted risk. Wanna see what happens when the sea rises 3 meters? Click a district and find out. 👀",
-      "This whole map updates in real time as you mess with the sliders. It's basically a crystal ball, but made of code.",
+      "Wanna see what happens when the sea rises 3 meters? Click a district and find out. 👀",
+      "Click a district and find out what happens when the sea rises 3 meters. Or 5. Or 10. It's all here.",
     ],
   },
   {
@@ -18,12 +15,12 @@ const STEPS = [
     title: "🕐 Time Machine, Basically",
     body: [
       "Drag this to jump anywhere from 2025 to 2100. Yes, you can time-travel to a very soggy 2100 if you're feeling brave.",
-      "Pick a year and hit auto-fill — the whole scenario snaps to what scientists project for that timeline. No cap.",
+      "Pick a year and hit auto-fill — the whole scenario snaps to what scientists project for that timeline.",
     ],
   },
   {
     target: "sliders",
-    title: "⚙️ Break the Climate (Simulated, Promise)",
+    title: "⚙️ Break the Climate ",
     body: [
       "Crank the temperature slider all the way up. Go on. We'll wait. See how fast the map turns red? That's not a bug, that's science. 🔥",
       "Every slider here feeds straight into 5 real trained AI models. Nothing here is hardcoded — it's all predictions, baby.",
@@ -33,8 +30,8 @@ const STEPS = [
     target: "chat",
     title: "✦ Say Hi to Golem",
     body: [
-      "This is Golem, your AI analyst. Ask it what a scenario means and watch it actually type it out like it's thinking. Kinda unsettling, kinda cool.",
-      "Click any district, then hit 'Ask Golem' — it'll break down the risk in plain English, no boomer jargon.",
+      "This is Golem, your AI analyst. Ask it what a scenario means and watch it actually type it out.",
+      "Click any district, then hit 'Ask Golem' — it'll break down everything that needs to be explained.",
     ],
   },
   {
@@ -42,7 +39,7 @@ const STEPS = [
     title: "📊 The Receipts",
     body: [
       "Flood risk, crop loss, migration, disease, economic damage — all right here, animating like a loot drop every time you change something.",
-      "These numbers are the actual model outputs. Screenshot 'em, flex 'em, whatever you want.",
+      "Watch the numbers spin, the risks pile up, and your choices play out in real time.",
     ],
   },
 ];
@@ -90,13 +87,13 @@ function EjectionIntro({ onDone }) {
             style={{ textAlign: "center", zIndex: 2 }}
           >
             <div style={{ fontFamily: "var(--font-pixel)", fontSize: 22, color: "var(--redstone)", marginBottom: 10 }}>
-              CLIMATE DENIAL
+              WELCOME EXPLORERS
             </div>
             <div style={{ fontFamily: "var(--font-pixel)", fontSize: 14, color: "var(--text-secondary)" }}>
-              WAS EJECTED.
+              
             </div>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: 20, color: "var(--diamond)", marginTop: 18 }}>
-              loading real data instead...
+              Let's simulate weather events and see how Bangladesh fares in the future. 🌊
             </div>
           </motion.div>
         )}
@@ -123,15 +120,15 @@ function WelcomeCard({ onStart, onSkip }) {
           BANGLADESH CLIMATE CRAFT — RISK SIMULATOR
         </div>
         <div className="mc-panel-inset" style={{ padding: 16, fontSize: 14, lineHeight: 1.6, color: "var(--text-secondary)", marginBottom: 18 }}>
-          Slide into any future scenario, watch 5 real AI models predict what happens to
-          Bangladesh, and let Golem explain it like your smartest friend. No cap, no boring
-          spreadsheets. <strong style={{ color: "var(--text-primary)" }}>Just click stuff and see what happens.</strong>
+          Slide into any future scenario, watch what happens to
+          Bangladesh, and let Golem explain it like your smartest friend.
+          <strong style={{ color: "var(--text-primary)" }}>Just click stuff and see what happens.</strong>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 20, textAlign: "left" }}>
           {[
             "Click anywhere on the map to pick a district",
             "Drag sliders / pick a year to build a scenario",
-            "Ask Golem — it explains it live, typing and everything",
+            "Ask Golem — it explains it live.",
           ].map((t, i) => (
             <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
               <span className="mc-panel-inset" style={{ fontFamily: "var(--font-pixel)", fontSize: 10, padding: "4px 8px", flexShrink: 0 }}>
